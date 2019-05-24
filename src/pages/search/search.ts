@@ -41,7 +41,7 @@ export class SearchPage {
    */
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
-      item: item
+      id: item.ndbno
     });
   }
 
