@@ -24,8 +24,9 @@ export class SearchPage {
       this.currentItems = [];
       return;
     }
-    this.currentItems = this.items.query({
-      name: val
+    this.usda.query(val).subscribe(result => {
+      console.dir(result);
+      this.currentItems = result.list.item;
     });
   }
 
