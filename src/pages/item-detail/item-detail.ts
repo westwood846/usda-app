@@ -7,6 +7,8 @@ import { UsdaProvider } from '../../providers/usda/usda';
 import { tap, map } from 'rxjs/operators'
 import { Observable } from 'rxjs/Observable';
 
+import { groupBy, compact } from 'lodash';
+
 @IonicPage()
 @Component({
   selector: 'page-item-detail',
@@ -16,7 +18,9 @@ export class ItemDetailPage {
   id: any;
   food: any;
   nutrientGroups = {};
-  
+  _compact = compact;
+
+
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
     this.id = navParams.get('id') || '11090';
     usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
