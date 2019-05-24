@@ -22,7 +22,7 @@ export class ItemDetailPage {
 
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
-    this.id = navParams.get('id') || '11090';
+    this.id = navParams.get('id') || '09326';
     usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
       console.dir(food);
       this.food = food;
