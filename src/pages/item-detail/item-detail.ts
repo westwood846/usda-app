@@ -17,7 +17,7 @@ export class ItemDetailPage {
   food: Observable<any>;
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
-    this.id = navParams.get('id');
+    this.id = navParams.get('id') || '11090';
     usda.get(this.id).pipe(tap(console.dir), map(result => result.foods[0].food)).subscribe(food => this.food = food);
   }
 
