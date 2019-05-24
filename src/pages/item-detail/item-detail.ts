@@ -19,6 +19,7 @@ export class ItemDetailPage {
   food: any;
   nutrientGroups = {};
   _compact = compact;
+  amount = 100;
 
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
