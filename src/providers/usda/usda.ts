@@ -14,8 +14,8 @@ export class UsdaProvider {
     return this.http.get(`https://api.nal.usda.gov/ndb/search`, { params: {api_key: UsdaProvider.USDA_API_KEY, q: query, ds: "Standard Reference"} });
   }
 
-  get(id: number) {
-    return this.http.get(`https://api.nal.usda.gov/fdc/v2/reports`, { params: {api_key: UsdaProvider.USDA_API_KEY, ndbno: id.toString()} });
+  get(id: string) {
+    return this.http.get(`https://api.nal.usda.gov/ndb/V2/reports`, { params: {api_key: UsdaProvider.USDA_API_KEY, ndbno: id} });
   }
 
 }
