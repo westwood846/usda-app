@@ -13,7 +13,13 @@ export class SearchPage {
 
   currentItems: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public usda: UsdaProvider) { }
+
+  @ViewChild(Searchbar) viewChild: Searchbar;
+
+  ngAfterViewInit() {
+    setTimeout(() => this.viewChild.setFocus(), 500);;
+  }
 
   /**
    * Perform a service for the proper items.
