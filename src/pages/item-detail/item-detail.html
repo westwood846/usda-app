@@ -1,18 +1,31 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ item.name }}</ion-title>
+    <ion-title *ngIf="food">{{ food.desc.name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-  </div>
 
-  <div class="item-detail" padding>
-    <h2>{{item.name}}</h2>
-    <p>{{item.about}}</p>
+  <div *ngIf="food" class="item-detail" padding>
+    <h2>{{food.desc.name}}</h2>
+    <p>{{[food.desc.ds, food.desc.manu].join(" &middot; ")}}</p>
+    <p>{{food.desc.manu}}</p>
+
+    <ion-grid>
+      <ion-row *ngFor="let nutrient of food.nutrients">
+        <ion-col>
+          {{nutrient.name}}
+        </ion-col>
+        <ion-col>
+          {{nutrient.group}}
+        </ion-col>
+        <ion-col>
+          {{nutrient.value}} {{nutrient.unit}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
