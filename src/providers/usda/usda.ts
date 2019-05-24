@@ -1,17 +1,21 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/*
-  Generated class for the UsdaProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class UsdaProvider {
 
+  private static USDA_API_KEY = 'FYTSTF75mesLeO85VFSKvqgWEzdL0hQAYCZUtjJk';
+
   constructor(public http: HttpClient) {
-    console.log('Hello UsdaProvider Provider');
+  }
+
+  query(query: string) {
+    return this.http.get(`https://api.nal.usda.gov/ndb/search`, { params: {api_key: UsdaProvider.USDA_API_KEY, q: query, ds: "Standard Reference"} });
+  }
+
+  get(id: number) {
+    return this.http.get(`https://api.nal.usda.gov/fdc/v2/reports`, { params: {api_key: UsdaProvider.USDA_API_KEY, ndbno: id.toString()} });
   }
 
 }
