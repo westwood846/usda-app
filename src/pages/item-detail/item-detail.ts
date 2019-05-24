@@ -32,4 +32,8 @@ export class ItemDetailPage {
     });
   }
 
+  gotToSearch() {
+    this.navCtrl.push('SearchPage')
+  }
+
 }
