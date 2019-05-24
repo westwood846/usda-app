@@ -14,8 +14,9 @@
     <p>{{[food.desc.ds, food.desc.manu].join(" &middot; ")}}</p>
     <p>{{food.desc.manu}}</p>
 
-    <ion-grid>
-      <ion-row *ngFor="let nutrient of food.nutrients">
+    <ion-grid *ngFor="let group of nutrientGroups | keyvalue">
+      <h3>{{group.key}}</h3>
+      <ion-row *ngFor="let nutrient of group.val">
         <ion-col>
           {{nutrient.name}}
         </ion-col>

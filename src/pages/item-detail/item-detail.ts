@@ -14,11 +14,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ItemDetailPage {
   id: any;
-  food: Observable<any>;
-
+  food: any;
+  nutrientGroups = {};
+  
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
     this.id = navParams.get('id') || '11090';
-    usda.get(this.id).pipe(tap(console.dir), map(result => result.foods[0].food)).subscribe(food => this.food = food);
+    usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
+      console.dir(food);
+      this.food = food;
+      this.nutrientGroups = groupBy(food.nutrients, 'group');
+      console.dir(this.nutrientGroups)
+    });
   }
 
 }
