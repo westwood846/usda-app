@@ -9,7 +9,7 @@ import { Items } from '../../providers';
   selector: 'page-search',
   templateUrl: 'search.html'
 })
-export class SearchPage {
+export class SearchPage implements AfterViewInit {
 
   currentItems: any = [];
 
