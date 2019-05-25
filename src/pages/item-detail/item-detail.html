@@ -31,6 +31,23 @@
 
     <ion-grid *ngFor="let group of nutrientGroups | keyvalue">
       <h3>{{group.key}}</h3>
+      <ion-row>
+        <ion-col>
+          <strong>Nutrient</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Group</strong>
+        </ion-col>
+        <ion-col>
+          <strong>per 100 g</strong>
+        </ion-col>
+        <ion-col>
+          <strong>in {{ amount }} g</strong>
+        </ion-col>
+        <ion-col>
+          <strong>Reference</strong>
+        </ion-col>
+      </ion-row>
       <ion-row *ngFor="let nutrient of group.val">
         <ion-col>
           {{nutrient.name}}
@@ -43,6 +60,14 @@
         </ion-col>
         <ion-col>
           {{(nutrient.value / 100 * amount) | number:'1.0-3'}} {{nutrient.unit}}
+        </ion-col>
+        <ion-col>
+          <div *ngIf="ref[nutrient.name]">
+            <span *ngIf="ref[nutrient.name].target">{{ (nutrient.value / 100 * amount / ref[nutrient.name].target) | percent }} </span>
+            <span *ngIf="ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].lower">low</span>
+            <span *ngIf="ref[nutrient.name].lower && ref[nutrient.name].upper && nutrient.value / 100 * amount >= ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].upper">ok</span>
+            <span *ngIf="ref[nutrient.name].upper && nutrient.value / 100 * amount > ref[nutrient.name].upper">high</span>
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>

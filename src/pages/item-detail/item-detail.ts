@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Items } from '../../providers';
 import { UsdaProvider } from '../../providers/usda/usda';
+import { ReferenceProvider } from '../../providers/reference/reference';
 
 import { tap, map } from 'rxjs/operators'
 import { Observable } from 'rxjs/Observable';
@@ -20,6 +21,7 @@ export class ItemDetailPage {
   nutrientGroups = {};
   _compact = compact;
   amount = 100;
+  ref = {};
 
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
@@ -30,6 +32,8 @@ export class ItemDetailPage {
       this.nutrientGroups = groupBy(food.nutrients, 'group');
       console.dir(this.nutrientGroups)
     });
+    this.ref = ReferenceProvider.getReference();
+
   }
 
   gotToSearch() {
