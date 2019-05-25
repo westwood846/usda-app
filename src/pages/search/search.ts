@@ -12,6 +12,7 @@ import { UsdaProvider } from '../../providers/usda/usda';
 })
 export class SearchPage implements AfterViewInit {
 
+  currentQuery: string = '';
   currentItems: any = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public usda: UsdaProvider) { }
