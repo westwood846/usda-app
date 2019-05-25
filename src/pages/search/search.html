@@ -16,5 +16,6 @@
       <ion-note item-end *ngIf="item.manu">{{item.manu}}</ion-note>
     </button>
   </ion-list>
-  <ion-note *ngIf="currentItems.length === 0 && currentQuery !== ''">No search results for "{{ currentQuery }}"</ion-note>
+  <ion-spinner *ngIf="searchInProgress"></ion-spinner>
+  <ion-note *ngIf="currentItems.length === 0 && currentQuery !== '' && !searchInProgress">No search results for "{{ currentQuery }}"</ion-note>
 </ion-content>

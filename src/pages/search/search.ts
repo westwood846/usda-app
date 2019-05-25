@@ -14,6 +14,7 @@ export class SearchPage implements AfterViewInit {
 
   currentQuery: string = '';
   currentItems: any = [];
+  searchInProgress = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public usda: UsdaProvider) { }
 
@@ -32,8 +33,10 @@ export class SearchPage implements AfterViewInit {
       this.currentItems = [];
       return;
     }
+    this.searchInProgress = true;
     this.usda.query(val).subscribe(result => {
       console.dir(result);
+      this.searchInProgress = false;
       this.currentItems = result['list'] ? result['list'].item : [];
     });
   }
