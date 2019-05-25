@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { Items } from '../../providers';
 import { UsdaProvider } from '../../providers/usda/usda';
@@ -8,7 +9,7 @@ import { ReferenceProvider } from '../../providers/reference/reference';
 import { tap, map } from 'rxjs/operators'
 import { Observable } from 'rxjs/Observable';
 
-import { groupBy, compact } from 'lodash';
+import { groupBy, compact, uniq } from 'lodash';
 
 @IonicPage()
 @Component({
@@ -24,7 +25,7 @@ export class ItemDetailPage {
   ref = {};
 
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider) {
+  constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider, private storage: Storage) {
     this.id = navParams.get('id') || '09326';
     usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
       console.dir(food);
@@ -38,6 +39,16 @@ export class ItemDetailPage {
 
   gotToSearch() {
     this.navCtrl.push('SearchPage')
+  }
+
+  addToCollection() {
+    this.storage.get('collection').then(collection => {
+      this.storage.set('collection', uniq([...(collection||[]), this.id]));
+    })
+  }
+
+  logCollection() {
+    this.storage.get('collection').then(console.dir);
   }
 
 }

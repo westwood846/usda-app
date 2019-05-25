@@ -27,6 +27,10 @@
   <div *ngIf="food" class="item-detail" padding>
     <h1><small>{{amount}} g </small>{{food.desc.name}}</h1>
     <p>{{_compact([food.desc.ds, food.desc.manu]).join(" &middot; ")}}</p>
+    <p>
+      <button ion-button (click)="addToCollection()">Add</button>
+      <button ion-button (click)="logCollection()">Log</button>
+    </p>
 
     <ion-grid *ngFor="let group of nutrientGroups | keyvalue">
       <h3>{{group.key}}</h3>
