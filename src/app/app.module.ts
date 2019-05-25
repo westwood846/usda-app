@@ -14,6 +14,9 @@ import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { UsdaProvider } from '../providers/usda/usda';
 import { ReferenceProvider } from '../providers/reference/reference';
+// import { CollectionFooterComponent } from '../components/collection-footer/collection-footer';
+// import { ComponentsModule } from '../components/components.module';
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -38,7 +41,8 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    // CollectionFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,11 +55,12 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    // ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
   ],
   providers: [
     Api,
@@ -68,7 +73,8 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     UsdaProvider,
-    ReferenceProvider
+    ReferenceProvider,
+    // CollectionFooterComponent
   ]
 })
 export class AppModule { }

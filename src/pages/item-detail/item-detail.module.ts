@@ -5,6 +5,8 @@ import { IonicPageModule } from 'ionic-angular';
 import { ItemDetailPage } from './item-detail';
 
 import { PipesModule } from '../../pipes/pipes.module';
+import { CollectionFooterComponent } from '../../components/collection-footer/collection-footer';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,8 @@ import { PipesModule } from '../../pipes/pipes.module';
   imports: [
     IonicPageModule.forChild(ItemDetailPage),
     TranslateModule.forChild(),
-    PipesModule
+    PipesModule,
+    ComponentsModule
   ],
   exports: [
     ItemDetailPage
