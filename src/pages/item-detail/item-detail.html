@@ -17,7 +17,7 @@
 
   <div>
     <ion-item>
-      <ion-range min="0" max="1000" step="1" [(ngModel)]="amount">
+      <ion-range min="0" max="1000" step="{{amount < 100 ? 1 : 10}}" [(ngModel)]="amount">
         <ion-icon size="small" slot="start" name="sunny"></ion-icon>
         <ion-icon slot="end" name="sunny"></ion-icon>
       </ion-range>
