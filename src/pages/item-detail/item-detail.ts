@@ -43,12 +43,16 @@ export class ItemDetailPage {
 
   addToCollection() {
     this.storage.get('collection').then(collection => {
-      this.storage.set('collection', uniq([...(collection||[]), this.id]));
+      this.storage.set('collection', uniq([...(collection||[]), {id: this.id, amount: this.amount}]));
     })
   }
 
   logCollection() {
     this.storage.get('collection').then(console.dir);
+  }
+
+  clearCollection() {
+    this.storage.set('collection', []);
   }
 
 }
