@@ -66,6 +66,9 @@
             <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].lower">low</span>
             <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].lower && ref[nutrient.name].upper && nutrient.value / 100 * amount >= ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].upper">ok</span>
             <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].upper && nutrient.value / 100 * amount > ref[nutrient.name].upper">high</span>
+            <span style="color: #afafaf">
+              of {{ref[nutrient.name].target}} {{nutrient.unit}}
+            </span>
           </div>
         </ion-col>
       </ion-row>
