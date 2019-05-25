@@ -27,7 +27,6 @@
   <div *ngIf="food" class="item-detail" padding>
     <h1><small>{{amount}} g </small>{{food.desc.name}}</h1>
     <p>{{_compact([food.desc.ds, food.desc.manu]).join(" &middot; ")}}</p>
-    <p>{{food.desc.manu}}</p>
 
     <ion-grid *ngFor="let group of nutrientGroups | keyvalue">
       <h3>{{group.key}}</h3>
