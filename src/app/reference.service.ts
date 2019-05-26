@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class ReferenceProvider {
+export class ReferenceService {
 
   constructor(public http: HttpClient) {
   }

@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { IonSearchbar } from '@ionic/angular';
 
-import { UsdaProvider } from '../usda.service';
+import { UsdaService } from '../usda.service';
 import { Router } from '@angular/router';
 
 import { compact } from 'lodash';
@@ -19,7 +19,7 @@ export class SearchPage implements AfterViewInit {
 
   _compact = compact;
 
-  constructor(private router: Router, public usda: UsdaProvider) { }
+  constructor(private router: Router, public usda: UsdaService) { }
 
   @ViewChild(IonSearchbar) viewChild: IonSearchbar;
 

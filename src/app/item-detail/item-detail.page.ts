@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/Storage';
 
-import { UsdaProvider } from '../usda.service';
-import { ReferenceProvider } from '../reference.service';
+import { UsdaService } from '../usda.service';
+import { ReferenceService } from '../reference.service';
 
 import { map } from 'rxjs/operators'
 
@@ -23,7 +23,7 @@ export class ItemDetailPage {
   ref = {};
 
 
-  constructor(public usda: UsdaProvider, private storage: Storage, private router: Router) {
+  constructor(public usda: UsdaService, private storage: Storage, private router: Router) {
     this.id = '09326'; // TODO: Get from path params
     usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
       console.dir(food);
@@ -31,7 +31,7 @@ export class ItemDetailPage {
       this.nutrientGroups = groupBy(food.nutrients, 'group');
       console.dir(this.nutrientGroups)
     });
-    this.ref = ReferenceProvider.getReference();
+    this.ref = ReferenceService.getReference();
 
   }
 
