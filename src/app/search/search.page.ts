@@ -4,6 +4,8 @@ import { IonSearchbar } from '@ionic/angular';
 import { UsdaProvider } from '../usda.service';
 import { Router } from '@angular/router';
 
+import { compact } from 'lodash';
+
 @Component({
   selector: 'page-search',
   templateUrl: './search.page.html',
@@ -14,6 +16,8 @@ export class SearchPage implements AfterViewInit {
   currentQuery: string = '';
   currentItems: any = [];
   searchInProgress = false;
+
+  _compact = compact;
 
   constructor(private router: Router, public usda: UsdaProvider) { }
 
