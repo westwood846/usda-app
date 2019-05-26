@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { CollectionService } from 'src/app/collection.service';
+import { Observable } from 'rxjs';
+
+import { size } from 'lodash';
 
 @Component({
   selector: 'collection-footer',
@@ -7,7 +11,12 @@ import { Component } from '@angular/core';
 })
 export class CollectionFooterComponent {
 
-  constructor() {
+
+  public collection: Observable<any>;
+  public _size = size;
+
+  constructor(private collectionService: CollectionService) {
+    this.collection = this.collectionService.getCollectionObservable();
   }
 
 }
