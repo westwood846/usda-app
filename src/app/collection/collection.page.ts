@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CollectionService } from '../collection.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-collection',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CollectionPage implements OnInit {
 
-  constructor() { }
+  public collection: BehaviorSubject<any>;
+
+  constructor(private collectionService: CollectionService) {
+    this.collection = collectionService.collection;
+  }
 
   ngOnInit() {
   }
