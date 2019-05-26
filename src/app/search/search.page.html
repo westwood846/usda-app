@@ -1,14 +1,14 @@
 <ion-header>
 
   <ion-toolbar>
-    <ion-title>SEARCH_TITLE</ion-title>
+    <ion-title>Search</ion-title>
   </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="SEARCH_PLACEHOLDER" [(ngModel)]="currentQuery"></ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="okra raw" [(ngModel)]="currentQuery"></ion-searchbar>
   <ion-list *ngIf="currentItems && currentItems.length > 0">
     <ion-item *ngFor="let item of currentItems" [routerLink]="['/detail', item.ndbno]">
       <ion-label>{{item.name}}</ion-label>
