@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import { uniq } from 'lodash';
+import { isUndefined } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,13 @@ export class CollectionService {
   constructor(private storage: Storage) { }
 
   addToCollection(id: string, amount: number) {
-    this.storage.get('collection').then(collection => {
-      this.storage.set('collection', uniq([...(collection||[]), {id, amount}]));
-    })
+    return this.storage.get('collection').then(collection => {
+      let existingAmount = collection[id];
+      if (isUndefined(existingAmount) || existingAmount.amount !== amount) {
+        collection[id] = amount;
+        this.storage.set('collection', collection);
+      }
+    });
   }
 
   logCollection() {
@@ -21,6 +25,6 @@ export class CollectionService {
   }
 
   clearCollection() {
-    this.storage.set('collection', []);
+    this.storage.set('collection', {});
   }
 }
