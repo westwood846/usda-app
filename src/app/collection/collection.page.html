@@ -5,9 +5,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="logCollection()" color="secondary">Log Collection</ion-button>
-  <ion-button (click)="clearCollection()" color="warning">Clear Collection</ion-button>
-  <code>
-    <pre>{{ collection | async | json }}</pre>
-  </code>
+  <div padding>
+    <ion-button (click)="logCollection()" color="secondary">Log Collection</ion-button>
+    <ion-button (click)="clearCollection()" color="warning">Clear Collection</ion-button>
+  </div>
+  <div padding>
+    <code>
+      <pre>{{ collection | async | json }}</pre>
+    </code>
+  </div>
 </ion-content>
