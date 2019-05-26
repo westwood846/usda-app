@@ -1,4 +1,4 @@
-<ion-toolbar color="dark">
+<ion-toolbar color="dark" *ngIf="_size(collection | async) > 0">
   <ion-grid>
     <ion-row>
       <ion-col>
@@ -6,7 +6,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
   <ion-buttons slot="end">
     <ion-button>
       Inspect

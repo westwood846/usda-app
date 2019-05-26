@@ -3,6 +3,7 @@ import { CollectionService } from 'src/app/collection.service';
 import { Observable } from 'rxjs';
 
 import { size } from 'lodash';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'collection-footer',
@@ -16,7 +17,7 @@ export class CollectionFooterComponent {
   public _size = size;
 
   constructor(private collectionService: CollectionService) {
-    this.collection = this.collectionService.getCollectionObservable();
+    this.collection = this.collectionService.getCollectionObservable().pipe(tap(collection => console.log(size(collection))));
   }
 
 }
