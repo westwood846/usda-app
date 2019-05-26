@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CollectionService } from 'src/app/collection.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import { size } from 'lodash';
 import { tap } from 'rxjs/operators';
@@ -12,12 +12,12 @@ import { tap } from 'rxjs/operators';
 })
 export class CollectionFooterComponent {
 
-
-  public collection: Observable<any>;
+  public collection: BehaviorSubject<any>;
   public _size = size;
 
   constructor(private collectionService: CollectionService) {
-    this.collection = this.collectionService.getCollectionObservable().pipe(tap(collection => console.log(size(collection))));
+    this.collection = collectionService.collection;
+    this.collection.subscribe(collection => console.log(size(collection)));
   }
 
 }
