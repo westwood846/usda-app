@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { IonicPageModule } from 'ionic-angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
-import { ItemDetailPage } from './item-detail';
+import { IonicModule } from '@ionic/angular';
 
-import { PipesModule } from '../../pipes/pipes.module';
-import { CollectionFooterComponent } from '../collection-footer/collection-footer';
-import { ComponentsModule } from '../../components/components.module';
+import { ItemDetailPage } from './item-detail.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ItemDetailPage
+  }
+];
 
 @NgModule({
-  declarations: [
-    ItemDetailPage,
-  ],
   imports: [
-    IonicPageModule.forChild(ItemDetailPage),
-    TranslateModule.forChild(),
-    PipesModule,
-    ComponentsModule
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes)
   ],
-  exports: [
-    ItemDetailPage
-  ]
+  declarations: [ItemDetailPage]
 })
-export class ItemDetailPageModule { }
+export class ItemDetailPageModule {}

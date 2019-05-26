@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
-import { Items } from '../../providers';
 import { UsdaProvider } from '../usda.service';
 import { ReferenceProvider } from '../reference.service';
 
-import { tap, map } from 'rxjs/operators'
-import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators'
 
 import { groupBy, compact, uniq } from 'lodash';
+import { Router } from '@angular/router';
 
-@IonicPage()
 @Component({
   selector: 'page-item-detail',
   templateUrl: 'item-detail.html'
@@ -25,8 +22,8 @@ export class ItemDetailPage {
   ref = {};
 
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items, public usda: UsdaProvider, private storage: Storage) {
-    this.id = navParams.get('id') || '09326';
+  constructor(public usda: UsdaProvider, private storage: Storage, private router: Router) {
+    this.id = '09326'; // TODO: Get from path params
     usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
       console.dir(food);
       this.food = food;
@@ -38,7 +35,7 @@ export class ItemDetailPage {
   }
 
   gotToSearch() {
-    this.navCtrl.push('SearchPage')
+    this.router.navigate(['/search']);
   }
 
   addToCollection() {
