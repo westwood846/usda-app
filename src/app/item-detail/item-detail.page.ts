@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/Storage';
 
 import { UsdaService } from '../usda.service';
 import { ReferenceService } from '../reference.service';
@@ -8,6 +7,7 @@ import { map } from 'rxjs/operators'
 
 import { groupBy, compact, uniq } from 'lodash';
 import { Router } from '@angular/router';
+import { CollectionService } from '../collection.service';
 
 @Component({
   selector: 'page-item-detail',
@@ -23,7 +23,7 @@ export class ItemDetailPage {
   ref = {};
 
 
-  constructor(public usda: UsdaService, private storage: Storage, private router: Router) {
+  constructor(public usda: UsdaService, private router: Router, private collectionService: CollectionService) {
     this.id = '09326'; // TODO: Get from path params
     usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
       console.dir(food);
@@ -40,17 +40,15 @@ export class ItemDetailPage {
   }
 
   addToCollection() {
-    this.storage.get('collection').then(collection => {
-      this.storage.set('collection', uniq([...(collection||[]), {id: this.id, amount: this.amount}]));
-    })
+    this.collectionService.addToCollection(this.id, this.amount);
   }
 
   logCollection() {
-    this.storage.get('collection').then(console.dir);
+    this.collectionService.logCollection();
   }
 
   clearCollection() {
-    this.storage.set('collection', []);
+    this.collectionService.clearCollection();
   }
 
 }
