@@ -1,12 +1,13 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Searchbar } from 'ionic-angular';
+import { IonSearchbar } from '@ionic/angular';
 
 import { UsdaProvider } from '../usda.service';
+import { Router } from '@angular/router';
 
-@IonicPage()
 @Component({
   selector: 'page-search',
-  templateUrl: 'search.html'
+  templateUrl: './search.page.html',
+  styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements AfterViewInit {
 
@@ -14,9 +15,9 @@ export class SearchPage implements AfterViewInit {
   currentItems: any = [];
   searchInProgress = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public usda: UsdaProvider) { }
+  constructor(private router: Router, public usda: UsdaProvider) { }
 
-  @ViewChild(Searchbar) viewChild: Searchbar;
+  @ViewChild(IonSearchbar) viewChild: IonSearchbar;
 
   ngAfterViewInit() {
     setTimeout(() => this.viewChild.setFocus(), 500);;
@@ -43,9 +44,7 @@ export class SearchPage implements AfterViewInit {
    * Navigate to the detail page for this item.
    */
   openItem(item: any) {
-    this.navCtrl.push('ItemDetailPage', {
-      id: item.ndbno
-    });
+    this.router.navigate(['/detail', item.ndbno]);
   }
 
 }

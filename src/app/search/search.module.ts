@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { IonicPageModule } from 'ionic-angular';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
-import { SearchPage } from './search';
+import { IonicModule } from '@ionic/angular';
+
+import { SearchPage } from './search.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: SearchPage
+  }
+];
 
 @NgModule({
-  declarations: [
-    SearchPage,
-  ],
   imports: [
-    IonicPageModule.forChild(SearchPage),
-    TranslateModule.forChild()
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RouterModule.forChild(routes)
   ],
-  exports: [
-    SearchPage
-  ]
+  declarations: [SearchPage]
 })
-export class SearchPageModule { }
+export class TestpagePageModule {}
