@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'collection-footer',
-  templateUrl: './collectionFooter.component.html',
-  styleUrls: ['./collectionFooter.component.scss'],
+  templateUrl: './collection-footer.component.html',
+  styleUrls: ['./collection-footer.component.scss'],
 })
 export class CollectionFooterComponent {
 

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ItemDetailPage } from './item-detail.page';
 import { IonicStorageModule } from '@ionic/Storage';
+import { ComponentsModule } from '../components/components.module';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ComponentsModule
   ],
   declarations: [ItemDetailPage]
 })
