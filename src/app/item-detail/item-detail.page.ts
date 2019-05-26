@@ -35,6 +35,7 @@ export class ItemDetailPage {
     });
     this.ref = ReferenceService.getReference();
 
+    this.collectionService.getCollectionObservable().subscribe(console.log);
   }
 
   gotToSearch() {

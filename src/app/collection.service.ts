@@ -2,13 +2,20 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 import { isUndefined } from 'lodash';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CollectionService {
 
-  constructor(private storage: Storage) { }
+  private collectionSubject = new Subject<any>();
+
+  constructor(private storage: Storage) {
+    this.storage.get('collection').then(collection => {
+      this.collectionSubject.next(collection);
+    });
+  }
 
   addToCollection(id: string, amount: number) {
     return this.storage.get('collection').then(collection => {
@@ -16,6 +23,7 @@ export class CollectionService {
       if (isUndefined(existingAmount) || existingAmount.amount !== amount) {
         collection[id] = amount;
         this.storage.set('collection', collection);
+        this.collectionSubject.next(collection);
       }
     });
   }
@@ -26,5 +34,10 @@ export class CollectionService {
 
   clearCollection() {
     this.storage.set('collection', {});
+    this.collectionSubject.next({});
+  }
+
+  getCollectionObservable() {
+    return this.collectionSubject.asObservable();
   }
 }
