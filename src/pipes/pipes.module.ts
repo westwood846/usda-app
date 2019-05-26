@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { KeyValuePipe } from './key-value/key-value';
+import { KeyValuePipe } from '../app/key-value';
 @NgModule({
 	declarations: [KeyValuePipe],
 	imports: [],
