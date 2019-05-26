@@ -1,9 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Searchbar } from 'ionic-angular';
 
-import { Item } from '../../models/item';
-import { Items } from '../../providers';
-import { UsdaProvider } from '../../providers/usda/usda';
+import { UsdaProvider } from '../../app/usda.service';
 
 @IonicPage()
 @Component({
@@ -16,7 +14,7 @@ export class SearchPage implements AfterViewInit {
   currentItems: any = [];
   searchInProgress = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public usda: UsdaProvider) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public usda: UsdaProvider) { }
 
   @ViewChild(Searchbar) viewChild: Searchbar;
 
@@ -44,7 +42,7 @@ export class SearchPage implements AfterViewInit {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
+  openItem(item: any) {
     this.navCtrl.push('ItemDetailPage', {
       id: item.ndbno
     });

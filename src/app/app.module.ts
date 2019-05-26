@@ -12,8 +12,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
-import { UsdaProvider } from '../providers/usda/usda';
-import { ReferenceProvider } from '../providers/reference/reference';
+import { UsdaProvider } from './usda.service';
+import { ReferenceProvider } from './reference.service';
 // import { CollectionFooterComponent } from '../components/collection-footer/collection-footer';
 // import { ComponentsModule } from '../components/components.module';
 
