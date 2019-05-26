@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'search', pathMatch: 'full' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'detail/:id', loadChildren: './item-detail/item-detail.module#ItemDetailPageModule' },
-  { path: 'collection', loadChildren: './item-master/item-master.module#ItemMasterPageModule' },
+  // { path: 'collection', loadChildren: './item-master/item-master.module#ItemMasterPageModule' },
 ];
 
 @NgModule({
