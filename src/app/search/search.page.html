@@ -1,14 +1,14 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>SEARCH_TITLE</ion-title>
+  </ion-toolbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}" [(ngModel)]="currentQuery"></ion-searchbar>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="SEARCH_PLACEHOLDER" [(ngModel)]="currentQuery"></ion-searchbar>
   <ion-list *ngIf="currentItems && currentItems.length > 0">
     <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
       <h2>{{item.name}}</h2>

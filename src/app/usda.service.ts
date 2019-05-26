@@ -1,8 +1,10 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UsdaProvider {
 
   private static USDA_API_KEY = 'FYTSTF75mesLeO85VFSKvqgWEzdL0hQAYCZUtjJk';
