@@ -18,4 +18,12 @@ export class CollectionPage implements OnInit {
   ngOnInit() {
   }
 
+  logCollection() {
+    this.collectionService.logCollection();
+  }
+
+  clearCollection() {
+    this.collectionService.clearCollection();
+  }
+
 }

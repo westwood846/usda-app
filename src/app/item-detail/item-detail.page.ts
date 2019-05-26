@@ -44,12 +44,4 @@ export class ItemDetailPage {
     this.collectionService.addToCollection(this.id, this.amount);
   }
 
-  logCollection() {
-    this.collectionService.logCollection();
-  }
-
-  clearCollection() {
-    this.collectionService.clearCollection();
-  }
-
 }

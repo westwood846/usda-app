@@ -29,8 +29,6 @@
     <p>{{_compact([food.desc.ds, food.desc.manu]).join(" &middot; ")}}</p>
     <p>
       <ion-button  (click)="addToCollection()">Add to Collection</ion-button>
-      <ion-button  (click)="logCollection()" color="secondary">Log Collection</ion-button>
-      <ion-button  (click)="clearCollection()" color="warning">Clear Collection</ion-button>
     </p>
 
     <ion-grid *ngFor="let group of nutrientGroups | keyvalue">
