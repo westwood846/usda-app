@@ -5,7 +5,7 @@ import { ReferenceService } from '../reference.service';
 
 import { map, tap, flatMap } from 'rxjs/operators'
 
-import { groupBy, compact, uniq } from 'lodash';
+import { groupBy, compact, size } from 'lodash';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CollectionService } from '../collection.service';
 
@@ -19,8 +19,10 @@ export class ItemDetailPage {
   food: any;
   nutrientGroups = {};
   _compact = compact;
+  _size = size;
   amount = 100;
   ref = {};
+  collectionObservable;
 
 
   constructor(public usda: UsdaService, private router: Router, private activatedRoute: ActivatedRoute, private collectionService: CollectionService) {
@@ -36,6 +38,7 @@ export class ItemDetailPage {
     this.ref = ReferenceService.getReference();
 
     this.collectionService.getCollectionObservable().subscribe(console.log);
+    this.collectionObservable = this.collectionService.getCollectionObservable();
   }
 
   gotToSearch() {
