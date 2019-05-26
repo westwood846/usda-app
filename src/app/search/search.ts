@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Searchbar } from 'ionic-angular';
 
-import { UsdaProvider } from '../../app/usda.service';
+import { UsdaProvider } from '../usda.service';
 
 @IonicPage()
 @Component({
