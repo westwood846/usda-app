@@ -18,3 +18,7 @@
   <ion-spinner *ngIf="searchInProgress"></ion-spinner>
   <ion-note *ngIf="currentItems.length === 0 && currentQuery !== '' && !searchInProgress">No search results for "{{ currentQuery }}"</ion-note>
 </ion-content>
+
+<ion-footer>
+  <collection-footer></collection-footer>
+</ion-footer>
