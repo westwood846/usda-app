@@ -3,8 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { Items } from '../../providers';
-import { UsdaProvider } from '../../app/usda.service';
-import { ReferenceProvider } from '../../app/reference.service';
+import { UsdaProvider } from '../usda.service';
+import { ReferenceProvider } from '../reference.service';
 
 import { tap, map } from 'rxjs/operators'
 import { Observable } from 'rxjs/Observable';
