@@ -3,10 +3,10 @@ import { Component } from '@angular/core';
 import { UsdaService } from '../usda.service';
 import { ReferenceService } from '../reference.service';
 
-import { map } from 'rxjs/operators'
+import { map, tap, flatMap } from 'rxjs/operators'
 
 import { groupBy, compact, uniq } from 'lodash';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CollectionService } from '../collection.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { CollectionService } from '../collection.service';
   styleUrls: ['./item-detail.page.scss'],
 })
 export class ItemDetailPage {
-  id: any;
+  id: string;
   food: any;
   nutrientGroups = {};
   _compact = compact;
@@ -23,9 +23,11 @@ export class ItemDetailPage {
   ref = {};
 
 
-  constructor(public usda: UsdaService, private router: Router, private collectionService: CollectionService) {
-    this.id = '09326'; // TODO: Get from path params
-    usda.get(this.id).pipe(map(result => result['foods'][0].food)).subscribe(food => {
+  constructor(public usda: UsdaService, private router: Router, private activatedRoute: ActivatedRoute, private collectionService: CollectionService) {
+    let $id = this.activatedRoute.paramMap.pipe(map(paramMap => paramMap.get('id')), tap(id => this.id = id));
+    let $food = $id.pipe(flatMap(id => usda.get(id)), map(result => result['foods'][0].food));
+    
+    $food.subscribe(food => {
       console.dir(food);
       this.food = food;
       this.nutrientGroups = groupBy(food.nutrients, 'group');
