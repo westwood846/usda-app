@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'page-item-detail',
-  templateUrl: 'item-detail.html'
+  templateUrl: './item-detail.page.html',
+  styleUrls: ['./item-detail.page.scss'],
 })
 export class ItemDetailPage {
   id: any;
