@@ -49,6 +49,9 @@
         <ion-col>
           <strong>Reference</strong>
         </ion-col>
+        <ion-col>
+          <strong>Density</strong>
+        </ion-col>
       </ion-row>
       <ion-row *ngFor="let nutrient of group.value">
         <ion-col>
@@ -73,6 +76,9 @@
               of {{ref[nutrient.name].target}} {{nutrient.unit}}
             </span>
           </div>
+        </ion-col>
+        <ion-col>
+          {{ nutrient.value / calories * 100 | number: '1.0-2' }} {{nutrient.unit}}/100 kcal
         </ion-col>
       </ion-row>
     </ion-grid>

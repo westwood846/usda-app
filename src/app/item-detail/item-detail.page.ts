@@ -5,7 +5,7 @@ import { ReferenceService } from '../reference.service';
 
 import { map, tap, flatMap } from 'rxjs/operators'
 
-import { groupBy, compact } from 'lodash';
+import { groupBy, compact, find } from 'lodash';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CollectionService } from '../collection.service';
 
@@ -17,6 +17,7 @@ import { CollectionService } from '../collection.service';
 export class ItemDetailPage {
   id: string;
   food: any;
+  calories: number;
   nutrientGroups = {};
   _compact = compact;
   amount = 100;
@@ -32,6 +33,7 @@ export class ItemDetailPage {
       this.food = food;
       this.nutrientGroups = groupBy(food.nutrients, 'group');
       console.dir(this.nutrientGroups)
+      this.calories = find(food.nutrients, {name: "Energy"}).value;
     });
     this.ref = ReferenceService.getReference();
   }
