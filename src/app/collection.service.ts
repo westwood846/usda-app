@@ -9,40 +9,50 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CollectionService {
 
+  private state = {};
   public collection = new BehaviorSubject<{}>({});
 
   constructor(private storage: Storage) {
-    this.storage.get('collection').then(collection => {
-      this.collection.next(collection);
+    let getPromise = this.storage.get('collection');
+    getPromise.then(collection => {
+      this.state = collection;
+      this.emitState();
     });
+    getPromise.catch(console.error);
   }
 
   addToCollection(id: string, amount: number) {
-    return this.storage.get('collection').then(collection => {
-      let existingAmount = collection[id];
-      if (isUndefined(existingAmount) || existingAmount.amount !== amount) {
-        collection[id] = amount;
-        this.storage.set('collection', collection);
-        this.collection.next(collection);
-      }
-    });
+    let existingAmount = this.state[id];
+    if (isUndefined(existingAmount) || existingAmount.amount !== amount) {
+      this.state[id] = amount;
+      this.syncWithStorage();
+      this.emitState();
+    }
   }
 
   deleteFromCollection(id: string) {
-    return this.storage.get('collection').then(collection => {
-      delete collection[id];
-      this.storage.set('collection', collection);
-      this.collection.next(collection);
-    });
+    delete this.state[id];
+    this.syncWithStorage();
+    this.emitState();
   }
 
   logCollection() {
-    this.storage.get('collection').then(console.dir);
+    console.log(this.state)
   }
 
   clearCollection() {
-    this.storage.set('collection', {});
-    this.collection.next({});
+    this.state = {};
+    this.syncWithStorage();
+    this.emitState();
+  }
+
+  private syncWithStorage() {
+    let setPromise = this.storage.set('collection', this.state);
+    setPromise.catch(console.error);
+  }
+
+  private emitState() {
+    this.collection.next(this.state);
   }
 
 }
