@@ -15,7 +15,15 @@
     </code>
   </div>
 
-  <ion-grid>
-    
+  <ion-grid *ngFor="let group of nutrients | keyvalue">
+    <ion-row>
+      <ion-col>
+        <h3>{{ group.key }}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let nutrient of group.value">
+      <ion-col>{{ nutrient.name }}</ion-col>
+      <ion-col>{{ nutrient.value | number:'1.1-3' }} {{ nutrient.unit }}</ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>

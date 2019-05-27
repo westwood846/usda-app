@@ -34,6 +34,7 @@ export class CollectionPage implements OnInit {
         .groupBy('nutrient_id')
         .map(nutrientGroup => nutrientGroup.reduce((acc, nutrient) => set(acc, 'value', acc.value + nutrient.value), nutrientGroup[0]))
         .each(nutrient => delete nutrient.measures)
+        .groupBy('group')
         .value();
       // Object.values(this.nutrients).reduce((acc, nutrientsOfFood) => set(acc, nutrients), {});
       console.dir(this.nutrients)
