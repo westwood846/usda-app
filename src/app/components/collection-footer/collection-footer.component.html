@@ -1,6 +1,6 @@
 <ion-toolbar color="dark" *ngIf="_size(collection | async) > 0">
   <div padding>
-    <ion-label><strong>{{_size(collection | async)}}</strong> items in collection &middot; <strong>1234</strong> g, <strong>814</strong> kcal total</ion-label>
+    <ion-label><strong>{{ _size(collection | async) }}</strong> {{ 'item' | makePluralString: (_size(collection | async)) }} in collection &middot; <strong>1234</strong> g, <strong>814</strong> kcal total</ion-label>
   </div>
 
   <ion-buttons slot="end">
