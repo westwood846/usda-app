@@ -5,6 +5,7 @@ import { UsdaService } from '../usda.service';
 import { map, tap, flatMap, reduce, mergeMap } from 'rxjs/operators';
 
 import { set, groupBy, concat, chain, sum, flatten } from 'lodash';
+import { strict } from 'assert';
 
 @Component({
   selector: 'app-collection',
@@ -53,6 +54,15 @@ export class CollectionPage implements OnInit {
 
   clearCollection() {
     this.collectionService.clearCollection();
+  }
+
+  updateCollection(id: string, amount: number) {
+    this.collectionService.addToCollection(id, amount);
+  }
+
+  changeAmount(id, newAmount) {
+    console.log(`Change amount of ${id} to ${newAmount}`)
+    this.updateCollection(id, newAmount);
   }
 
 }

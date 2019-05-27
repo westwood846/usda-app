@@ -12,7 +12,11 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let food of foods | keyvalue">
-      <ion-label>{{ food.value.amount }} {{ food.value.desc.ru }} {{ food.value.desc.name }}</ion-label>
+      <ion-label href="/">{{ food.value.amount }} {{ food.value.desc.ru }} {{ food.value.desc.name }}</ion-label>
+      <ion-range min="0" max="1000" step="10" value="{{ food.value.amount }}" (ionChange)="changeAmount(food.value.desc.ndbno, $event.detail.value)">
+        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+        <ion-icon slot="end" name="sunny"></ion-icon>
+      </ion-range>
     </ion-item>
   </ion-list>
   <div padding>
