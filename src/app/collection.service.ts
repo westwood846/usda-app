@@ -28,6 +28,14 @@ export class CollectionService {
     });
   }
 
+  deleteFromCollection(id: string) {
+    return this.storage.get('collection').then(collection => {
+      delete collection[id];
+      this.storage.set('collection', collection);
+      this.collection.next(collection);
+    });
+  }
+
   logCollection() {
     this.storage.get('collection').then(console.dir);
   }

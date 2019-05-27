@@ -60,6 +60,10 @@ export class CollectionPage implements OnInit {
     this.collectionService.addToCollection(id, amount);
   }
 
+  deleteFood(id: string) {
+    this.collectionService.deleteFromCollection(id);
+  }
+
   changeAmount(id, newAmount) {
     console.log(`Change amount of ${id} to ${newAmount}`)
     this.updateCollection(id, newAmount);
