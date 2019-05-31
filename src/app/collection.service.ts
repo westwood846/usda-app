@@ -13,9 +13,9 @@ export class CollectionService {
   public collection = new BehaviorSubject<{}>({});
 
   constructor(private storage: Storage) {
-    let getPromise = this.storage.get('collection');
+    let getPromise = this.storage.get('collection') ;
     getPromise.then(collection => {
-      this.state = collection;
+      this.state = collection || {};
       this.emitState();
     });
     getPromise.catch(console.error);
