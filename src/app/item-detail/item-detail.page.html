@@ -54,19 +54,19 @@
         </ion-col>
       </ion-row>
       <ion-row *ngFor="let nutrient of group.value">
-        <ion-col>
-          {{nutrient.name}}
+        <ion-col size="12" size-md>
+          <strong>{{nutrient.name}}</strong>
         </ion-col>
-        <ion-col>
+        <ion-col size="12" size-md>
           {{nutrient.group}}
         </ion-col>
-        <ion-col>
+        <ion-col size="12" size-md>
           {{nutrient.value}} {{nutrient.unit}}
         </ion-col>
-        <ion-col>
+        <ion-col size="12" size-md>
           {{(nutrient.value / 100 * amount) | number:'1.0-3'}} {{nutrient.unit}}
         </ion-col>
-        <ion-col>
+        <ion-col size="12" size-md>
           <div *ngIf="ref[nutrient.name]">
             <span *ngIf="ref[nutrient.name].target">{{ (nutrient.value / 100 * amount / ref[nutrient.name].target) | percent }} </span>
             <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].lower">low</span>
@@ -77,7 +77,7 @@
             </span>
           </div>
         </ion-col>
-        <ion-col>
+        <ion-col size="12" size-md>
           {{ nutrient.value / calories * 100 | number: '1.0-2' }} {{nutrient.unit}}/100 kcal
         </ion-col>
       </ion-row>
