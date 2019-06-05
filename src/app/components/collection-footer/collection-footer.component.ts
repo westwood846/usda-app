@@ -17,7 +17,6 @@ export class CollectionFooterComponent {
 
   constructor(private collectionService: CollectionService) {
     this.collection = collectionService.collection;
-    this.collection.subscribe(collection => console.log(size(collection)));
   }
 
 }

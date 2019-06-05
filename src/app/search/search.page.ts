@@ -38,7 +38,6 @@ export class SearchPage implements AfterViewInit {
     }
     this.searchInProgress = true;
     this.usda.query(val).subscribe(result => {
-      console.dir(result);
       this.searchInProgress = false;
       this.currentItems = result['list'] ? result['list'].item : [];
     });

@@ -38,10 +38,8 @@ export class CollectionPage implements OnInit {
         .groupBy('group')
         .value();
       // Object.values(this.nutrients).reduce((acc, nutrientsOfFood) => set(acc, nutrients), {});
-      // console.dir(this.nutrients)
       Object.values(foods).forEach(food => food['nutrients'] = groupBy(food['nutrients'], 'group'));
       this.foods = foods;
-      console.dir(this.foods)
     });
   }
 
@@ -65,7 +63,6 @@ export class CollectionPage implements OnInit {
   }
 
   changeAmount(id, newAmount) {
-    console.log(`Change amount of ${id} to ${newAmount}`)
     this.updateCollection(id, newAmount);
   }
 

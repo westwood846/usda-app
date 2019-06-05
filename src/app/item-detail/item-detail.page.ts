@@ -29,10 +29,8 @@ export class ItemDetailPage {
     let $food = $id.pipe(flatMap(id => usda.get(id)), map(result => result['foods'][0].food));
     
     $food.subscribe(food => {
-      console.dir(food);
       this.food = food;
       this.nutrientGroups = groupBy(food.nutrients, 'group');
-      console.dir(this.nutrientGroups)
       this.calories = find(food.nutrients, {name: "Energy"}).value;
     });
     this.ref = ReferenceService.getReference();
