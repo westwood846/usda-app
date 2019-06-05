@@ -14,17 +14,12 @@ export class CachingInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    console.log('Intercepted a request')
-    console.dir(req)
     const cachedResponse = this.cache.get(req);
     if (cachedResponse) {
-      console.log('Returning cached response');
       return of(cachedResponse);
     } else {
-      console.log('Returning fresh response');
       return this.sendRequest(req, next, this.cache);
     }
-    // return cachedResponse ? of(cachedResponse) : this.sendRequest(req, next, this.cache);
   }
 
   sendRequest(
