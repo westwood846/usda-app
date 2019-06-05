@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { NgPipesModule } from 'ngx-pipes';
 import { CachingInterceptor } from './caching-interceptor';
+import { OfflineInterceptor } from './offline-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { CachingInterceptor } from './caching-interceptor';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: OfflineInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
