@@ -4,13 +4,15 @@ import { CollectionFooterComponent } from './collection-footer/collection-footer
 import { IonicModule } from '@ionic/angular';
 
 import { NgPipesModule } from 'ngx-pipes';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [CollectionFooterComponent],
   imports: [
     CommonModule,
     IonicModule,
-    NgPipesModule
+    NgPipesModule,
+    RouterModule
   ],
   exports: [CollectionFooterComponent]
 })
