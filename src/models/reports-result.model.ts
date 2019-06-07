@@ -32,6 +32,7 @@ declare module ReportsResultModel {
     desc: Desc;
     nutrients: Nutrient[];
     footnotes: any[];
+    amount?: number;
   }
 
   export interface FoodContainer {
