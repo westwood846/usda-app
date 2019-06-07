@@ -17,15 +17,15 @@ export class UsdaService {
   constructor(public http: HttpClient) {
   }
 
-  search(query: string): Observable<SearchResultModel.SearchResult> {
+  public search(query: string): Observable<SearchResultModel.SearchResult> {
     return this.http.get<SearchResultModel.SearchResult>(UsdaService.USDA_SEARCH_URL, { params: {api_key: UsdaService.USDA_API_KEY, q: query, ds: "Standard Reference"} });
   }
 
-  getReports(id: string): Observable<ReportsResultModel.ReportsResult> {
+  public getReports(id: string): Observable<ReportsResultModel.ReportsResult> {
     return this.http.get<ReportsResultModel.ReportsResult>(UsdaService.USDA_DETAIL_URL, { params: {api_key: UsdaService.USDA_API_KEY, ndbno: id} });
   }
 
-  getFood(id:string): Observable<ReportsResultModel.Food> {
+  public getFood(id:string): Observable<ReportsResultModel.Food> {
     return this.getReports(id).pipe(map(get('foods[0].food')));
   }
 
