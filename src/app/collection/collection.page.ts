@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from '../collection.service';
-import { BehaviorSubject, combineLatest } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { UsdaService } from '../usda.service';
-import { map, tap, flatMap, reduce, mergeMap } from 'rxjs/operators';
+import { map, tap, flatMap, reduce, mergeMap, distinctUntilChanged } from 'rxjs/operators';
 
-import { set, groupBy, concat, chain, sum, flatten } from 'lodash';
+import { set, groupBy, concat, chain, sum, flatten, keys, cloneDeep, values, merge } from 'lodash';
+import { mergeWith } from 'lodash/fp';
 import { strict } from 'assert';
+import { getComponentViewByIndex } from '@angular/core/src/render3/util';
 
 @Component({
   selector: 'app-collection',
@@ -14,33 +16,34 @@ import { strict } from 'assert';
 })
 export class CollectionPage implements OnInit {
 
-  public collection: BehaviorSubject<any>;
+  public collection: BehaviorSubject<Record<string, number>>;
   public foods;
   public nutrients;
-  public amounts;
+  public amounts: Record<string, number>;
+  public foodsWithAmounts$: Observable<ReportsResultModel.Food[]>;
+  public nutrients$: Observable<ReportsResultModel.Nutrient[]>;
+  public nutrientsByGroup$: Observable<Record<string, ReportsResultModel.Nutrient[]>>;
+
+
+  private setAmountsOnFoods = (foods: ReportsResultModel.Food[], collection: Record<string, number>) => foods.map(food => set(food, 'amount', collection[food.desc.ndbno]))
+  private toFoodsObservable = (ids: string[]) => (ids.length === 0) ? of([]) : combineLatest(ids.map(this.usda.getFood, this.usda))
+  private toScaledNutrients = (foods: ReportsResultModel.Food[]) => cloneDeep(foods).map(food => set(food, 'nutrients', food.nutrients.map(nutrient => set(nutrient, 'value', parseFloat(nutrient.value) / 100 * food.amount))))
+  private toNutrientArrays = (foods: ReportsResultModel.Food[]) => foods.map(food => food.nutrients);
+  private groupByNutrientName = (nutrientArrays: ReportsResultModel.Nutrient[][]) => chain(nutrientArrays).flatten().groupBy('name').value();
+  private mergeNutrientGroups = (nutrientGroups: Record<string, ReportsResultModel.Nutrient[]>) => values(nutrientGroups).map(group => group.reduce((acc, nutrient) => set(acc, 'value', acc.value + nutrient.value), group[0]));
 
   constructor(private collectionService: CollectionService, private usda: UsdaService) {
-    this.collection = collectionService.collection;
-    this.collection.subscribe(collection => this.amounts = collection);
-    this.collection.pipe(
-      map(collection => Object.keys(collection)),
-      flatMap(ids => combineLatest(ids.map(id => this.usda.get(id)))),
-      map(foodResults => foodResults.map(foodResult => foodResult['foods'][0].food)),
-      map(foods => foods.reduce((acc, food) => set(acc, food['desc'].ndbno, food), {}))
-    ).subscribe(foods => {
-      Object.keys(this.amounts).forEach(id => foods[id].amount = this.amounts[id]);
-      let nutrientsOfFoods = Object.values(foods).reduce((acc, food) => set(acc, food['desc'].ndbno, food['nutrients'].map(nutrient => set(nutrient, 'value', nutrient.value * food['amount'] / 100))), {});
-      this.nutrients = chain(Object.values(nutrientsOfFoods))
-        .flatten()
-        .groupBy('nutrient_id')
-        .map(nutrientGroup => nutrientGroup.reduce((acc, nutrient) => set(acc, 'value', acc.value + nutrient.value), nutrientGroup[0]))
-        .each(nutrient => delete nutrient.measures)
-        .groupBy('group')
-        .value();
-      // Object.values(this.nutrients).reduce((acc, nutrientsOfFood) => set(acc, nutrients), {});
-      Object.values(foods).forEach(food => food['nutrients'] = groupBy(food['nutrients'], 'group'));
-      this.foods = foods;
-    });
+    let collection$ = this.collectionService.collection;
+    let ids$ = collection$.pipe(map(keys), distinctUntilChanged());
+    let foods$ = ids$.pipe(flatMap(this.toFoodsObservable));
+    this.foodsWithAmounts$ = combineLatest(foods$, collection$, this.setAmountsOnFoods);
+    this.nutrients$ = this.foodsWithAmounts$.pipe(
+      map(this.toScaledNutrients),
+      map(this.toNutrientArrays),
+      map(this.groupByNutrientName),
+      map(this.mergeNutrientGroups)
+    );
+    this.nutrientsByGroup$ = this.nutrients$.pipe(map(nutrients => groupBy(nutrients, 'group')));
   }
 
   ngOnInit() {
@@ -63,6 +66,7 @@ export class CollectionPage implements OnInit {
   }
 
   changeAmount(id, newAmount) {
+    if (isNaN(newAmount)) return
     this.updateCollection(id, newAmount);
   }
 
