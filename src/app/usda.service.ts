@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, iif } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { get } from 'lodash/fp';
 
 
 @Injectable({
@@ -21,6 +23,10 @@ export class UsdaService {
 
   getReports(id: string): Observable<ReportsResultModel.ReportsResult> {
     return this.http.get<ReportsResultModel.ReportsResult>(UsdaService.USDA_DETAIL_URL, { params: {api_key: UsdaService.USDA_API_KEY, ndbno: id} });
+  }
+
+  getFood(id:string): Observable<ReportsResultModel.Food> {
+    return this.getReports(id).pipe(map(get('foods[0].food')));
   }
 
 }
