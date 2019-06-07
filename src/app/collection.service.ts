@@ -23,7 +23,7 @@ export class CollectionService {
 
   addToCollection(id: string, amount: number) {
     let existingAmount = this.state[id];
-    if (isUndefined(existingAmount) || existingAmount.amount !== amount) {
+    if (isUndefined(existingAmount) || existingAmount !== amount) {
       this.state[id] = amount;
       this.syncWithStorage();
       this.emitState();
