@@ -37,7 +37,7 @@ export class SearchPage implements AfterViewInit {
       return;
     }
     this.searchInProgress = true;
-    this.usda.query(val).subscribe(result => {
+    this.usda.search(val).subscribe(result => {
       this.searchInProgress = false;
       this.currentItems = result['list'] ? result['list'].item : [];
     });

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -14,12 +15,12 @@ export class UsdaService {
   constructor(public http: HttpClient) {
   }
 
-  query(query: string) {
-    return this.http.get(UsdaService.USDA_SEARCH_URL, { params: {api_key: UsdaService.USDA_API_KEY, q: query, ds: "Standard Reference"} });
+  search(query: string): Observable<SearchResultModel.SearchResult> {
+    return this.http.get<SearchResultModel.SearchResult>(UsdaService.USDA_SEARCH_URL, { params: {api_key: UsdaService.USDA_API_KEY, q: query, ds: "Standard Reference"} });
   }
 
-  get(id: string) {
-    return this.http.get(UsdaService.USDA_DETAIL_URL, { params: {api_key: UsdaService.USDA_API_KEY, ndbno: id} });
+  getReports(id: string): Observable<ReportsResultModel.ReportsResult> {
+    return this.http.get<ReportsResultModel.ReportsResult>(UsdaService.USDA_DETAIL_URL, { params: {api_key: UsdaService.USDA_API_KEY, ndbno: id} });
   }
 
 }

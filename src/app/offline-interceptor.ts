@@ -5,8 +5,8 @@ import { Observable, of } from 'rxjs';
 import { startWith, tap } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
-import sampleSearchData from '../assets/sample-data/search.json';
-import sampleDetailData from '../assets/sample-data/detail.json';
+import sampleSearchData from '../assets/sample-data/search-result.sample.json';
+import sampleDetailData from '../assets/sample-data/reports-result.sample.json';
 import { UsdaService } from './usda.service';
 
 @Injectable({

@@ -26,12 +26,12 @@ export class ItemDetailPage {
 
   constructor(public usda: UsdaService, private router: Router, private activatedRoute: ActivatedRoute, private collectionService: CollectionService) {
     let $id = this.activatedRoute.paramMap.pipe(map(paramMap => paramMap.get('id')), tap(id => this.id = id));
-    let $food = $id.pipe(flatMap(id => usda.get(id)), map(result => result['foods'][0].food));
+    let $food = $id.pipe(flatMap(id => usda.getReports(id)), map(result => result['foods'][0].food));
     
     $food.subscribe(food => {
       this.food = food;
       this.nutrientGroups = groupBy(food.nutrients, 'group');
-      this.calories = find(food.nutrients, {name: "Energy"}).value;
+      this.calories = parseFloat(find(food.nutrients, {name: "Energy"}).value);
     });
     this.ref = ReferenceService.getReference();
   }
