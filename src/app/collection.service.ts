@@ -9,8 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CollectionService {
 
-  private state = {};
-  public collection = new BehaviorSubject<{}>({});
+  private state: Record<string, number> = {};
+  public collection = new BehaviorSubject<Record<string, number>>({});
 
   constructor(private storage: Storage) {
     let getPromise = this.storage.get('collection') ;
