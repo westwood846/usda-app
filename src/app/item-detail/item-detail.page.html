@@ -26,7 +26,7 @@
 
   <div *ngIf="food" class="item-detail" padding>
     <h1><small>{{amount}} g </small>{{food.desc.name}}</h1>
-    <p>{{_compact([food.desc.ds, food.desc.manu]).join(" &middot; ")}}</p>
+    <p>{{_compact([food.desc.ds, food.desc.manu, food.desc.ndbno]).join(" &middot; ")}}</p>
     <p>
       <ion-button  (click)="addToCollection()">Add to Collection</ion-button>
     </p>
