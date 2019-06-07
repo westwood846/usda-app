@@ -5,8 +5,8 @@
         "sr": "1",
         "type": "b",
         "desc": {
-          "ndbno": "04037",
-          "name": "Oil, rice bran",
+          "ndbno": "11278",
+          "name": "Okra, raw",
           "ds": "Standard Reference",
           "manu": "",
           "ru": "g"
@@ -15,31 +15,24 @@
           {
             "nutrient_id": "255",
             "name": "Water",
-            "derivation": "NONE",
+            "derivation": "JO",
             "group": "Proximates",
             "unit": "g",
-            "value": "0.00",
+            "value": "89.58",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.00"
+                "value": "89.58"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
+                "qty": 8.0,
+                "value": "85.10"
               }
             ]
           },
@@ -49,121 +42,93 @@
             "derivation": "NC",
             "group": "Proximates",
             "unit": "kcal",
-            "value": "884",
+            "value": "33",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "120"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "1927"
+                "value": "33"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "40"
+                "qty": 8.0,
+                "value": "31"
               }
             ]
           },
           {
             "nutrient_id": "203",
             "name": "Protein",
-            "derivation": "NONE",
+            "derivation": "JO",
             "group": "Proximates",
             "unit": "g",
-            "value": "0.00",
+            "value": "1.93",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.00"
+                "value": "1.93"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
+                "qty": 8.0,
+                "value": "1.83"
               }
             ]
           },
           {
             "nutrient_id": "204",
             "name": "Total lipid (fat)",
-            "derivation": "NONE",
+            "derivation": "JO",
             "group": "Proximates",
             "unit": "g",
-            "value": "100.00",
+            "value": "0.19",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "13.60"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "218.00"
+                "value": "0.19"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "4.50"
+                "qty": 8.0,
+                "value": "0.18"
               }
             ]
           },
           {
             "nutrient_id": "205",
             "name": "Carbohydrate, by difference",
-            "derivation": "NONE",
+            "derivation": "NC",
             "group": "Proximates",
             "unit": "g",
-            "value": "0.00",
+            "value": "7.45",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.00"
+                "value": "7.45"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
+                "qty": 8.0,
+                "value": "7.08"
               }
             ]
           },
@@ -173,276 +138,213 @@
             "derivation": "NONE",
             "group": "Proximates",
             "unit": "g",
-            "value": "0.0",
+            "value": "3.2",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.0"
+                "value": "3.2"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.0"
+                "qty": 8.0,
+                "value": "3.0"
               }
             ]
           },
           {
             "nutrient_id": "269",
             "name": "Sugars, total",
-            "derivation": "NONE",
+            "derivation": "NC",
             "group": "Proximates",
             "unit": "g",
-            "value": "0.00",
+            "value": "1.48",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.00"
+                "value": "1.48"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
+                "qty": 8.0,
+                "value": "1.41"
               }
             ]
           },
           {
             "nutrient_id": "301",
             "name": "Calcium, Ca",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0",
+            "value": "82",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "82"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "78"
               }
             ]
           },
           {
             "nutrient_id": "303",
             "name": "Iron, Fe",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0.07",
+            "value": "0.62",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.01"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.15"
+                "value": "0.62"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
+                "qty": 8.0,
+                "value": "0.59"
               }
             ]
           },
           {
             "nutrient_id": "304",
             "name": "Magnesium, Mg",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0",
+            "value": "57",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "57"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "54"
               }
             ]
           },
           {
             "nutrient_id": "305",
             "name": "Phosphorus, P",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0",
+            "value": "61",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "61"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "58"
               }
             ]
           },
           {
             "nutrient_id": "306",
             "name": "Potassium, K",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0",
+            "value": "299",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "299"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "284"
               }
             ]
           },
           {
             "nutrient_id": "307",
             "name": "Sodium, Na",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0",
+            "value": "7",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "7"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "7"
               }
             ]
           },
           {
             "nutrient_id": "309",
             "name": "Zinc, Zn",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Minerals",
             "unit": "mg",
-            "value": "0.00",
+            "value": "0.58",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.00"
+                "value": "0.58"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
+                "qty": 8.0,
+                "value": "0.55"
               }
             ]
           },
@@ -452,59 +354,45 @@
             "derivation": "NONE",
             "group": "Vitamins",
             "unit": "mg",
-            "value": "0.0",
+            "value": "23.0",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.0"
+                "value": "23.0"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.0"
+                "qty": 8.0,
+                "value": "21.9"
               }
             ]
           },
           {
             "nutrient_id": "404",
             "name": "Thiamin",
-            "derivation": "NONE",
+            "derivation": "JA",
             "group": "Vitamins",
             "unit": "mg",
-            "value": "0.000",
+            "value": "0.200",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.000"
+                "value": "0.200"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
+                "qty": 8.0,
+                "value": "0.190"
               }
             ]
           },
@@ -514,28 +402,21 @@
             "derivation": "NONE",
             "group": "Vitamins",
             "unit": "mg",
-            "value": "0.000",
+            "value": "0.060",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.000"
+                "value": "0.060"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
+                "qty": 8.0,
+                "value": "0.057"
               }
             ]
           },
@@ -545,28 +426,21 @@
             "derivation": "NONE",
             "group": "Vitamins",
             "unit": "mg",
-            "value": "0.000",
+            "value": "1.000",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.000"
+                "value": "1.000"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
+                "qty": 8.0,
+                "value": "0.950"
               }
             ]
           },
@@ -576,28 +450,21 @@
             "derivation": "NONE",
             "group": "Vitamins",
             "unit": "mg",
-            "value": "0.000",
+            "value": "0.215",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0.000"
+                "value": "0.215"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.000"
+                "qty": 8.0,
+                "value": "0.204"
               }
             ]
           },
@@ -607,28 +474,21 @@
             "derivation": "NC",
             "group": "Vitamins",
             "unit": "\u00b5g",
-            "value": "0",
+            "value": "60",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "60"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "57"
               }
             ]
           },
@@ -641,24 +501,17 @@
             "value": "0.00",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0.00"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
                 "value": "0.00"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
+                "qty": 8.0,
                 "value": "0.00"
               }
             ]
@@ -666,31 +519,24 @@
           {
             "nutrient_id": "320",
             "name": "Vitamin A, RAE",
-            "derivation": "NC",
+            "derivation": "AS",
             "group": "Vitamins",
             "unit": "\u00b5g",
-            "value": "0",
+            "value": "36",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "36"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "34"
               }
             ]
           },
@@ -700,28 +546,21 @@
             "derivation": "AS",
             "group": "Vitamins",
             "unit": "IU",
-            "value": "0",
+            "value": "716",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "0"
+                "value": "716"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
+                "qty": 8.0,
+                "value": "680"
               }
             ]
           },
@@ -731,59 +570,93 @@
             "derivation": "NONE",
             "group": "Vitamins",
             "unit": "mg",
-            "value": "32.30",
+            "value": "0.27",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
+                "label": "cup",
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "4.39"
+                "value": "0.27"
               },
+              {
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
+                "eunit": "g",
+                "qty": 8.0,
+                "value": "0.26"
+              }
+            ]
+          },
+          {
+            "nutrient_id": "328",
+            "name": "Vitamin D (D2 + D3)",
+            "derivation": "NONE",
+            "group": "Vitamins",
+            "unit": "\u00b5g",
+            "value": "0.0",
+            "measures": [
               {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "70.41"
+                "value": "0.0"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
+                "eunit": "g",
+                "qty": 8.0,
+                "value": "0.0"
+              }
+            ]
+          },
+          {
+            "nutrient_id": "324",
+            "name": "Vitamin D",
+            "derivation": "NONE",
+            "group": "Vitamins",
+            "unit": "IU",
+            "value": "0",
+            "measures": [
+              {
+                "label": "cup",
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "1.45"
+                "value": "0"
+              },
+              {
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
+                "eunit": "g",
+                "qty": 8.0,
+                "value": "0"
               }
             ]
           },
           {
             "nutrient_id": "430",
             "name": "Vitamin K (phylloquinone)",
-            "derivation": "JO",
+            "derivation": "NONE",
             "group": "Vitamins",
             "unit": "\u00b5g",
-            "value": "24.7",
+            "value": "31.3",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "3.4"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "53.8"
+                "value": "31.3"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "1.1"
+                "qty": 8.0,
+                "value": "29.7"
               }
             ]
           },
@@ -793,28 +666,21 @@
             "derivation": "NONE",
             "group": "Lipids",
             "unit": "g",
-            "value": "19.700",
+            "value": "0.026",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "2.679"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "42.946"
+                "value": "0.026"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "0.886"
+                "qty": 8.0,
+                "value": "0.025"
               }
             ]
           },
@@ -824,28 +690,21 @@
             "derivation": "NONE",
             "group": "Lipids",
             "unit": "g",
-            "value": "39.300",
+            "value": "0.017",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "5.345"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "85.674"
+                "value": "0.017"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "1.768"
+                "qty": 8.0,
+                "value": "0.016"
               }
             ]
           },
@@ -855,58 +714,68 @@
             "derivation": "NONE",
             "group": "Lipids",
             "unit": "g",
-            "value": "35.000",
+            "value": "0.027",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
+                "label": "cup",
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "4.760"
+                "value": "0.027"
               },
+              {
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
+                "eunit": "g",
+                "qty": 8.0,
+                "value": "0.026"
+              }
+            ]
+          },
+          {
+            "nutrient_id": "605",
+            "name": "Fatty acids, total trans",
+            "derivation": "NONE",
+            "group": "Lipids",
+            "unit": "g",
+            "value": "0.000",
+            "measures": [
               {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
-                "value": "76.300"
+                "value": "0.000"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
-                "value": "1.575"
+                "qty": 8.0,
+                "value": "0.000"
               }
             ]
           },
           {
             "nutrient_id": "601",
             "name": "Cholesterol",
-            "derivation": "NC",
+            "derivation": "NONE",
             "group": "Lipids",
             "unit": "mg",
             "value": "0",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
                 "value": "0"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
+                "qty": 8.0,
                 "value": "0"
               }
             ]
@@ -920,24 +789,17 @@
             "value": "0",
             "measures": [
               {
-                "label": "tablespoon",
-                "eqv": 13.6,
-                "eunit": "g",
-                "qty": 1.0,
-                "value": "0"
-              },
-              {
                 "label": "cup",
-                "eqv": 218.0,
+                "eqv": 100.0,
                 "eunit": "g",
                 "qty": 1.0,
                 "value": "0"
               },
               {
-                "label": "tsp",
-                "eqv": 4.5,
+                "label": "pods (3\" long)",
+                "eqv": 95.0,
                 "eunit": "g",
-                "qty": 1.0,
+                "qty": 8.0,
                 "value": "0"
               }
             ]
