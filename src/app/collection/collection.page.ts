@@ -8,6 +8,7 @@ import { set, groupBy, concat, chain, sum, flatten, keys, cloneDeep, values, mer
 import { mergeWith } from 'lodash/fp';
 import { strict } from 'assert';
 import { getComponentViewByIndex } from '@angular/core/src/render3/util';
+import { KeyValue } from '@angular/common';
 
 @Component({
   selector: 'app-collection',
@@ -31,6 +32,11 @@ export class CollectionPage implements OnInit {
   private toNutrientArrays = (foods: ReportsResultModel.Food[]) => foods.map(food => food.nutrients);
   private groupByNutrientName = (nutrientArrays: ReportsResultModel.Nutrient[][]) => chain(nutrientArrays).flatten().groupBy('name').value();
   private mergeNutrientGroups = (nutrientGroups: Record<string, ReportsResultModel.Nutrient[]>) => values(nutrientGroups).map(group => group.reduce((acc, nutrient) => set(acc, 'value', acc.value + nutrient.value), group[0]));
+
+  private groupOrder = ['Proximates', 'Vitamins', 'Minerals', 'Lipids', 'Other'];
+  public sortGroupsByCustomOrder = (a: KeyValue<string, ReportsResultModel.Nutrient[]>, b: KeyValue<string,ReportsResultModel.Nutrient[]>): number => {
+    return this.groupOrder.indexOf(a.key) - this.groupOrder.indexOf(b.key) ;
+  }
 
   constructor(private collectionService: CollectionService, private usda: UsdaService) {
     let collection$ = this.collectionService.collection;

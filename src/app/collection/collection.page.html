@@ -43,7 +43,7 @@
   </div>
 
 
-  <ion-grid *ngFor="let nutrientGroup of (nutrientsByGroup$ | async | keyvalue)">
+  <ion-grid *ngFor="let nutrientGroup of (nutrientsByGroup$ | async | keyvalue:sortGroupsByCustomOrder)">
     <ion-row>
       <ion-col>
         <h3>{{ nutrientGroup.key }}</h3>
