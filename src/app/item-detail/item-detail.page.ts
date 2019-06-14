@@ -22,7 +22,7 @@ export class ItemDetailPage {
   _compact = compact;
   amount = 100;
   ref = {};
-  public sortGroupsByCustomOrder = UsdaService.groupOrder;
+  public sortGroupsByCustomOrder = UsdaService.sortGroupsByCustomOrder;
 
 
   constructor(public usda: UsdaService, private router: Router, private activatedRoute: ActivatedRoute, private collectionService: CollectionService) {
