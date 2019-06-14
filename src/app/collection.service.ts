@@ -87,7 +87,7 @@ export class CollectionService {
   private scaleNutrientsInFoods = (foods: ReportsResultModel.Food[]) => cloneDeep(foods).map(food => set(food, 'nutrients', food.nutrients.map(nutrient => set(nutrient, 'value', parseFloat(nutrient.value) / 100 * food.amount))));
 
   public getFoods(): Observable<ReportsResultModel.Food[]> {
-    return this.collection.pipe(map(keys), distinctUntilChanged(), flatMap(this.resolveIdsToFoods), map(this.setAmountsOnFoods), tap(console.log));
+    return this.collection.pipe(map(keys), distinctUntilChanged(), flatMap(this.resolveIdsToFoods), map(this.setAmountsOnFoods));
   }
 
   public getFoodsWithScaledNutrients(): Observable<ReportsResultModel.Food[]> {
