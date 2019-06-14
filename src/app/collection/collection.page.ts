@@ -17,31 +17,20 @@ import { KeyValue } from '@angular/common';
 })
 export class CollectionPage implements OnInit {
 
-  public collection: BehaviorSubject<Record<string, number>>;
-  public foods;
-  public nutrients;
-  public amounts: Record<string, number>;
   public foodsWithAmounts$: Observable<ReportsResultModel.Food[]>;
   public nutrients$: Observable<ReportsResultModel.Nutrient[]>;
   public nutrientsByGroup$: Observable<Record<string, ReportsResultModel.Nutrient[]>>;
 
 
-  private setAmountsOnFoods = (foods: ReportsResultModel.Food[], collection: Record<string, number>) => foods.map(food => set(food, 'amount', collection[food.desc.ndbno]))
-  private toFoodsObservable = (ids: string[]) => (ids.length === 0) ? of([]) : combineLatest(ids.map(this.usda.getFood, this.usda))
-  private toScaledNutrients = (foods: ReportsResultModel.Food[]) => cloneDeep(foods).map(food => set(food, 'nutrients', food.nutrients.map(nutrient => set(nutrient, 'value', parseFloat(nutrient.value) / 100 * food.amount))))
   private toNutrientArrays = (foods: ReportsResultModel.Food[]) => foods.map(food => food.nutrients);
   private groupByNutrientName = (nutrientArrays: ReportsResultModel.Nutrient[][]) => chain(nutrientArrays).flatten().groupBy('name').value();
   private mergeNutrientGroups = (nutrientGroups: Record<string, ReportsResultModel.Nutrient[]>) => values(nutrientGroups).map(group => group.reduce((acc, nutrient) => set(acc, 'value', acc.value + nutrient.value), group[0]));
 
-  public sortGroupsByCustomOrder = UsdaService.groupOrder;
+  public sortGroupsByCustomOrder = UsdaService.sortGroupsByCustomOrder;
 
   constructor(private collectionService: CollectionService, private usda: UsdaService) {
-    let collection$ = this.collectionService.collection;
-    let ids$ = collection$.pipe(map(keys), distinctUntilChanged());
-    let foods$ = ids$.pipe(flatMap(this.toFoodsObservable));
-    this.foodsWithAmounts$ = combineLatest(foods$, collection$, this.setAmountsOnFoods);
-    this.nutrients$ = this.foodsWithAmounts$.pipe(
-      map(this.toScaledNutrients),
+    this.foodsWithAmounts$ = this.collectionService.getFoods();
+    this.nutrients$ = this.collectionService.getFoodsWithScaledNutrients().pipe(
       map(this.toNutrientArrays),
       map(this.groupByNutrientName),
       map(this.mergeNutrientGroups)

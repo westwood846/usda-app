@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import { isUndefined } from 'lodash';
-import { size } from 'lodash/fp';
-import { BehaviorSubject, of, Observable } from 'rxjs';
+import { isUndefined, cloneDeep, set } from 'lodash';
+import { size, keys } from 'lodash/fp';
+import { BehaviorSubject, of, Observable, combineLatest } from 'rxjs';
 import { UsdaService } from './usda.service';
-import { map } from 'rxjs/operators';
+import { map, distinctUntilChanged, flatMap, tap } from 'rxjs/operators';
 
+/*
+ * Provides access to and manipulation of the collection state.
+ * Provides transformations and statistics for the collection.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -69,6 +73,18 @@ export class CollectionService {
 
   public totalEnergy(): Observable<number> {
     return of(Infinity);
+  }
+
+  private setAmountsOnFoods = (foods: ReportsResultModel.Food[]) => foods.map(food => set(food, 'amount', this.state[food.desc.ndbno]))
+  private resolveIdsToFoods = (ids: string[]) => (ids.length === 0) ? of([]) : combineLatest(ids.map(this.usda.getFood, this.usda));
+  private scaleNutrientsInFoods = (foods: ReportsResultModel.Food[]) => cloneDeep(foods).map(food => set(food, 'nutrients', food.nutrients.map(nutrient => set(nutrient, 'value', parseFloat(nutrient.value) / 100 * food.amount))));
+
+  public getFoods(): Observable<ReportsResultModel.Food[]> {
+    return this.collection.pipe(map(keys), distinctUntilChanged(), flatMap(this.resolveIdsToFoods), map(this.setAmountsOnFoods), tap(console.log));
+  }
+
+  public getFoodsWithScaledNutrients(): Observable<ReportsResultModel.Food[]> {
+    return this.getFoods().pipe(map(this.scaleNutrientsInFoods));
   }
 
 }
