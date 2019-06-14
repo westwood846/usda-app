@@ -10,3 +10,9 @@
   background: white;
   position: absolute;
 }
+
+@media (max-width: 768px) {
+  .nutrient-group-name-row {
+    margin-top: 16px;
+  }
+}
