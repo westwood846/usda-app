@@ -40,10 +40,10 @@
   </ion-list>
 
 
-  <div padding>
+  <!-- <div padding>
     <ion-button (click)="logCollection()" color="secondary">Log Collection</ion-button>
     <ion-button (click)="clearCollection()" color="warning">Clear Collection</ion-button>
-  </div>
+  </div> -->
 
 
   <ion-grid *ngFor="let nutrientGroup of (nutrientsByGroup$ | async | keyvalue:sortGroupsByCustomOrder)">
