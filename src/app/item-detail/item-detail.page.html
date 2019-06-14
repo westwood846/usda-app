@@ -64,13 +64,13 @@
         </ion-col>
         <ion-col size-xs="4" class="ion-hide-md-up mu-measurement-name mu-padding-left-0">Reference</ion-col>
         <ion-col size-xs="8" size-md>
-          <div *ngIf="ref[nutrient.name]">
-            <span *ngIf="ref[nutrient.name].target">{{ (nutrient.value / 100 * amount / ref[nutrient.name].target) | percent }} </span>
-            <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].lower">low</span>
+          <div *ngIf="(ref | async)[nutrient.name] as nutrientRecommendation">
+            <span *ngIf="nutrientRecommendation.target">{{ (nutrient.value / 100 * amount / nutrientRecommendation.target) | percent }} </span>
+            <!-- <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].lower">low</span>
             <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].lower && ref[nutrient.name].upper && nutrient.value / 100 * amount >= ref[nutrient.name].lower && nutrient.value / 100 * amount < ref[nutrient.name].upper">ok</span>
-            <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].upper && nutrient.value / 100 * amount > ref[nutrient.name].upper">high</span>
+            <span *ngIf="!ref[nutrient.name].target && ref[nutrient.name].upper && nutrient.value / 100 * amount > ref[nutrient.name].upper">high</span> -->
             <span style="color: #afafaf">
-              of {{ref[nutrient.name].target}} {{nutrient.unit}}
+              of {{nutrientRecommendation.target}} {{nutrient.unit}}
             </span>
           </div>
         </ion-col>

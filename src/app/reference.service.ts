@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
 
 @Injectable()
 export class ReferenceService {
 
-  constructor(public http: HttpClient) {
+  constructor() {
   }
 
   static getReference() {
-    return {
+    return of({
       "Water":                              { target: 3000, lower: 3000, upper: Infinity },
       "Energy":                             { target: 2500 },
       "Protein":                            { target: 50, lower: 50, upper: 500 },
@@ -46,7 +46,7 @@ export class ReferenceService {
       "Cholesterol":                        { target: 300 },
 
       "Caffeine":                           { target: 400 },
-    }
+    });
   }
 
 }

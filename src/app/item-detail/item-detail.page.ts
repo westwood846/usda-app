@@ -21,7 +21,7 @@ export class ItemDetailPage {
   nutrientGroups = {};
   _compact = compact;
   amount = 100;
-  ref = {};
+  ref;
   public sortGroupsByCustomOrder = UsdaService.sortGroupsByCustomOrder;
 
 
