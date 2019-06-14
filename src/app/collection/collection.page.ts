@@ -9,6 +9,7 @@ import { mergeWith } from 'lodash/fp';
 import { strict } from 'assert';
 import { getComponentViewByIndex } from '@angular/core/src/render3/util';
 import { KeyValue } from '@angular/common';
+import { ReferenceService } from '../reference.service';
 
 @Component({
   selector: 'app-collection',
@@ -20,6 +21,7 @@ export class CollectionPage implements OnInit {
   public foodsWithAmounts$: Observable<ReportsResultModel.Food[]>;
   public nutrients$: Observable<ReportsResultModel.Nutrient[]>;
   public nutrientsByGroup$: Observable<Record<string, ReportsResultModel.Nutrient[]>>;
+  public nutrientReferences$: Observable<any>;
 
 
   private toNutrientArrays = (foods: ReportsResultModel.Food[]) => foods.map(food => food.nutrients);
@@ -36,6 +38,7 @@ export class CollectionPage implements OnInit {
       map(this.mergeNutrientGroups)
     );
     this.nutrientsByGroup$ = this.nutrients$.pipe(map(nutrients => groupBy(nutrients, 'group')));
+    this.nutrientReferences$ = ReferenceService.getReference();
   }
 
   ngOnInit() {

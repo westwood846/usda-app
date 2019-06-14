@@ -55,7 +55,12 @@
     <ion-row *ngFor="let nutrient of nutrientGroup.value">
       <ion-col>{{ nutrient.name }}</ion-col>
       <ion-col>{{ nutrient.value | number:'1.1-3' }} {{ nutrient.unit }}</ion-col>
-      <ion-col>100 %</ion-col>
+      <ion-col *ngIf="(nutrientReferences$ | async)[nutrient.name] as nutrientRecommendation">
+        {{ (nutrient.value / nutrientRecommendation.target) | percent }}
+        <span style="color: #afafaf">
+          of {{nutrientRecommendation.target}} {{nutrient.unit}}
+        </span>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
