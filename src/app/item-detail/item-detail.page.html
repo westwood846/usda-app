@@ -31,7 +31,7 @@
       <ion-button  (click)="addToCollection()">Add to Collection</ion-button>
     </p>
 
-    <ion-grid *ngFor="let group of nutrientGroups | keyvalue">
+    <ion-grid *ngFor="let group of nutrientGroups | keyvalue:sortGroupsByCustomOrder">
       <h3>{{group.key}}</h3>
       <ion-row class="ion-hide-sm-down">
         <ion-col>
