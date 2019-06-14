@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, iif } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { get } from 'lodash/fp';
+import { KeyValue } from '@angular/common';
 
 
 @Injectable({
