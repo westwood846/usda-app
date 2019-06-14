@@ -33,10 +33,7 @@ export class CollectionPage implements OnInit {
   private groupByNutrientName = (nutrientArrays: ReportsResultModel.Nutrient[][]) => chain(nutrientArrays).flatten().groupBy('name').value();
   private mergeNutrientGroups = (nutrientGroups: Record<string, ReportsResultModel.Nutrient[]>) => values(nutrientGroups).map(group => group.reduce((acc, nutrient) => set(acc, 'value', acc.value + nutrient.value), group[0]));
 
-  private groupOrder = ['Proximates', 'Vitamins', 'Minerals', 'Lipids', 'Other'];
-  public sortGroupsByCustomOrder = (a: KeyValue<string, ReportsResultModel.Nutrient[]>, b: KeyValue<string,ReportsResultModel.Nutrient[]>): number => {
-    return this.groupOrder.indexOf(a.key) - this.groupOrder.indexOf(b.key) ;
-  }
+  public sortGroupsByCustomOrder = UsdaService.groupOrder;
 
   constructor(private collectionService: CollectionService, private usda: UsdaService) {
     let collection$ = this.collectionService.collection;

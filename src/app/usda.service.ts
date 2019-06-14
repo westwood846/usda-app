@@ -29,4 +29,11 @@ export class UsdaService {
     return this.getReports(id).pipe(map(get('foods[0].food')));
   }
 
+  
+  public static groupOrder = ['Proximates', 'Vitamins', 'Minerals', 'Lipids', 'Other'];
+
+  public static sortGroupsByCustomOrder = (a: KeyValue<string, ReportsResultModel.Nutrient[]>, b: KeyValue<string,ReportsResultModel.Nutrient[]>): number => {
+    return UsdaService.groupOrder.indexOf(a.key) - UsdaService.groupOrder.indexOf(b.key) ;
+  }
+
 }
