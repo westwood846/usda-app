@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import { isUndefined, cloneDeep, set } from 'lodash';
-import { size, keys } from 'lodash/fp';
+import { isUndefined, cloneDeep, set, sum } from 'lodash';
+import { size, keys, values, get, filter, flatten } from 'lodash/fp';
 import { BehaviorSubject, of, Observable, combineLatest } from 'rxjs';
 import { UsdaService } from './usda.service';
-import { map, distinctUntilChanged, flatMap, tap } from 'rxjs/operators';
+import { map, distinctUntilChanged, flatMap, tap, reduce } from 'rxjs/operators';
 
 /*
  * Provides access to and manipulation of the collection state.
@@ -68,11 +68,18 @@ export class CollectionService {
   }
 
   public totalMass(): Observable<number> {
-    return of(Infinity);
+    return this.collection.pipe(map(values), map(sum));
   }
 
   public totalEnergy(): Observable<number> {
-    return of(Infinity);
+    return this.getFoodsWithScaledNutrients().pipe(
+      map(foods => foods.map(get('nutrients'))),
+      map(flatten),
+      map(filter({"name": "Energy"})),
+      map(energyNutrients => energyNutrients.map(get('value'))),
+      map(energyStrings => energyStrings.map(parseFloat)),
+      map(sum)
+    );
   }
 
   private setAmountsOnFoods = (foods: ReportsResultModel.Food[]) => foods.map(food => set(food, 'amount', this.state[food.desc.ndbno]))
