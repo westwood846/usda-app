@@ -14,6 +14,9 @@ export class CollectionFooterComponent {
 
   public collection: BehaviorSubject<any>;
   public _size = size;
+  public totalSize = this.collectionService.totalSize();
+  public totalMass = this.collectionService.totalMass();
+  public totalEnergy = this.collectionService.totalEnergy();
 
   constructor(private collectionService: CollectionService) {
     this.collection = collectionService.collection;
